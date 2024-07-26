@@ -1,0 +1,58 @@
+body{
+    background-color:darkcyan;
+}
+
+h1{
+    color:white;
+    font-size:50px;
+    margin:5%;
+    font-family:monospace;
+}
+
+fieldset{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    align-items:center;
+    width:50%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.11);
+    border:3px dotted rgb(255, 98, 0);
+    border-radius:15%;
+    box-shadow: 29px 25px 0 0 rgba(0, 0, 0, 0.286);
+    padding:15px;
+}
+
+div{
+    padding:10px;
+}
+
+label{
+    font-size:25px;
+    color:white;
+    font-family: monospace;
+}
+
+input[type="number"],input[type="text"]{
+    height: 30px;
+    border:none;
+    font-size:15px;
+    font-weight: bold;
+    border-radius:20%;
+}
+
+.ch2 {
+    height: 28px;
+    width:35px;
+    border-radius:20%;
+    font-weight: bold;
+}
+
+button{
+    height:35px;
+    border:none;
+    border-radius:15% 6% 15% 6%;
+    background-color: mintcream;
+    font-family:monospace;
+}

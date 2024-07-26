@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Temperature Converter</title>
+</head>
+
+<body>
+    <center>
+        <header>
+            <h1> Temperature Converter</h1>
+        </header>
+        <main>
+            <form autocomplete="off">
+                <fieldset>
+                    <div>
+                        <label for="inpt">Enter Temperature:-</label><br />
+                        <input type="number" id="inpt" placeholder="  Enter values..."  required/>
+                        <input list="s1" id="initial_symbol" class="ch2" name="symbol_1" required />
+                        <datalist id="s1">
+                            <option value="°C">°C</option>
+                            <option value="°F">°F</option>
+                            <option value="K">K</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <label for="s2">Temperature should be converted into :</label>
+                        <input list="s2" id="required_symbol" class="ch2" name="symbol_2" required />
+                        <datalist id="s2">
+                            <option value="°C">°C</option>
+                            <option value="°F">°F</option>
+                            <option value="K">K</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <button onclick="temp_change(event)">Submit</button>
+                        <button onclick="reset()">Reset</button>
+                    </div>
+                    <div>
+                        <label for="res">Result :-</label><br />
+                        <input type="text" id="res" readonly/>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+    </center>
+    <script>
+        function temp_change() {
+            event.preventDefault();
+            var t1=parseFloat(document.getElementById("inpt").value);
+            var sym1=document.getElementById("initial_symbol").value;
+            var sym2=document.getElementById("required_symbol").value;
+            var result=document.getElementById("res");
+            if(sym1 && sym2) {
+                if (sym1 === "°C" && sym2 === "°F") {
+                result.value = (t1 * 9/5) + 32;
+            } else if (sym1 === "°C" && sym2 === "K") {
+                result.value = t1 + 273.15;
+            } else if (sym1 === "°F" && sym2 === "°C") {
+                result.value = (t1 - 32) * 5/9;
+            } else if (sym1 === "°F" && sym2 === "K") {
+                result.value = (t1 - 32) * 5/9 + 273.15;
+            } else if (sym1 === "K" && sym2 === "°C") {
+                result.value = t1 - 273.15;
+            } else if (sym1 === "K" && sym2 === "°F") {
+                result.value = (t1 - 273.15) * 9/5 + 32;
+            } else {
+                result.value = t1;
+            }
+            } else {
+                alert("Please select an option from the drop-down list")
+            }
+        }
+
+        function reset() {
+            document.getElementById("inpt").value = "";
+            document.getElementById("initial_symbol").value = "";
+            document.getElementById("required_symbol").value = "";
+            document.getElementById("res").value = "";
+        }
+    </script>
+</body>
+
+</html>
